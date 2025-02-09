@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+df=pd.read_csv('D:\Sleep_health_and_lifestyle_dataset(3).csv')
+g=df.groupby(['Occupation'])['Sleep Duration'].mean()
+plt.rcParams['font.sans-serif']=['SimHei']
+plt.figure(figsize=(10,6))
+plt.grid(axis='y',linestyle='--')
+x=['Accountant','Doctor','Engineer','Lawyer','Manager','Nurse ','Scientist','Teacher']
+height=[7.113514,6.970423,7.987302,7.410638,6.900000,7.063014,6.000000,6.690000]
+plt.bar(x,height,width=0.5,alpha=0.5)
+plt.xlabel('职业',fontsize=15)
+plt.ylabel('睡眠时间',fontsize=15)
+plt.title('职业对睡眠时间的影响柱状图',fontsize=18)
+plt.ylim(ymin=5)
+for a,b in zip(x,height):
+    plt.text(a,b,format(b,','),ha='center',va='center',fontsize=12,color='r',alpha=0.9,)
+plt.show()
