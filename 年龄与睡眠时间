@@ -1,0 +1,19 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df=pd.read_csv('D:\Sleep_health_and_lifestyle_dataset(3).csv')
+g=df.groupby(['Age'])['Sleep Duration'].mean()
+plt.rcParams['font.sans-serif']='SimHei'
+g=str(pd.DataFrame(g))
+y=[]
+g=g.split()
+for i in g:
+    if '6'<i<'9':
+        y.append(i)
+x=[27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,48,50,51,52,53,54,55,56,57,58,59]
+
+plt.plot(x,y,color='r',linestyle='-.',)
+plt.title('年龄与睡眠时间的关系',fontsize=18)
+plt.ylabel('睡眠时间',fontsize=15)
+plt.show()
