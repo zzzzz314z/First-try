@@ -1,0 +1,19 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+df=pd.read_csv('D:\Sleep_health_and_lifestyle_dataset(3).csv')
+plt.rcParams['font.sans-serif']=['SimHei']
+x=list(df['Sleep Duration'])
+a,b,c,d=0,0,0,0
+for i in x:
+    if i <=6:
+        a+=1
+    if i > 6 and i <= 7:
+        b+=1
+    if i > 7 and i <= 8:
+        c+=1
+    if i > 8:
+        d+=1
+ls1=[a,b,c,d]
+plt.pie(ls1,labels=['小于6小时','6至7小时','7至8小时','大于8小时'],autopct='%1.1f%%',startangle=90,textprops={'fontsize':12})
+plt.title('睡眠时间饼状图')
+plt.show()
